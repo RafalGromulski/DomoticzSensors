@@ -13,6 +13,14 @@ bedroom = pd.read_csv(bedroom_sensor, delimiter=";", parse_dates=["DateTime"])
 hall = pd.read_csv(hall_sensor, delimiter=";", parse_dates=["DateTime"])
 bathroom = pd.read_csv(bathroom_sensor, delimiter=";", parse_dates=["DateTime"])
 
-print(bedroom)
-print(hall)
-print(bathroom)
+bedroom = bedroom.set_index("DateTime")
+hall = hall.set_index("DateTime")
+bathroom = bathroom.set_index("DateTime")
+
+bedroom.columns = ["Humidity", "Average_temperature", "Min_temperature", "Max_temperature"]
+hall.columns = ["Humidity", "Average_temperature", "Min_temperature", "Max_temperature"]
+bathroom.columns = ["Humidity", "Average_temperature", "Min_temperature", "Max_temperature"]
+
+# print(bedroom)
+# print(hall)
+# print(bathroom)
